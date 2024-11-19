@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .code-display {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee</h1>
+    </header>
+    <div class="container">
+        <h2>Generate Employee Code</h2>
+        <div class="form-group">
+            <label for="employeeName">Employee Name</label>
+            <input type="text" id="employeeName" placeholder="Enter employee name">
+        </div>
+        <button class="btn" onclick="generateEmployeeCode()">Generate Code</button>
+        <div class="code-display" id="employeeCodeDisplay">Your code will appear here</div>
+    </div>
+
+    <script>
+       
+        function generateEmployeeCode() {
+            const name = document.getElementById("employeeName").value.trim();
+            
+            if (name === "") {
+                alert("Please enter the employee's name.");
+                return;
+            }
+
+            const code = name.substring(0, 3).toUpperCase() + Math.floor(1000 + Math.random() * 9000);
+            
+      
+            document.getElementById("employeeCodeDisplay").textContent = `Generated Code: ${code}`;
+        }
+    </script>
+</body>
+</html>
